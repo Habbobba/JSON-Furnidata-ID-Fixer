@@ -12,7 +12,7 @@ logging.basicConfig(filename=log_file, level=logging.ERROR,
 
 def fix_ids(data, start_id, set_offerid):
     try:
-        for item in data:
+        for item in data['roomitemtypes']['furnitype']:
             item['id'] = start_id
             if set_offerid:
                 item['offerid'] = start_id
@@ -43,14 +43,15 @@ try:
     set_offerid = set_offerid_input.lower() == 'yes'
 
     # Call the function to fix the IDs and set offerid as desired
-    fix_ids(json_data['roomitemtypes']['furnitype'], start_id, set_offerid)
+    fix_ids(json_data, start_id, set_offerid)
 
-    # Write the repaired entries to the output file
+    # Write updated JSON data to output file
     with open(output_file_path, 'w') as file:
-        json.dump(json_data['roomitemtypes']['furnitype'], file, indent=4)
+        json.dump(json_data, file, indent=4)
 
     # Print success message
-    print(f"IDs fixed, offerid set as desired, and new 'furnidata.json' file with repaired entries generated in 'repaired' folder.")
+    print(f"IDs fixed, offerid set as desired, and new furnidata.json generated in 'repaired' folder.")
+
 except Exception as e:
     logging.exception(f"An error occurred: {e}")
     print("An error occurred. Please check the error log for more details.")
