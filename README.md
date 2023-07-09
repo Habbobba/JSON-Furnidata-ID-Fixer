@@ -15,7 +15,7 @@ This script is used to fix the IDs in a furnidata JSON file and optionally set t
 5. Run the script using the following command:
 
    ```
-   python fix_furnidata.py
+   python fixer.py
    ```
 
 6. The script will prompt you to enter the starting ID. Please enter a numeric value to set the starting range for the IDs.
