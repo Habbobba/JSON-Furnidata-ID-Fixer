@@ -40,3 +40,7 @@ This script is used to fix the IDs in a furnidata JSON file and optionally set t
 ## Credits
 
 This script was created by Gizmo.
+
+## Contact
+
+Gizmo_1813 on Discord.
